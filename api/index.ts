@@ -3,13 +3,12 @@ import * as path from "path";
 import { fileURLToPath } from "url";
 import { readFileSync } from "fs";
 import { resolvers } from "./resolvers/gql-resolvers";
-import { connectDB } from "./mongodb";
 import { verifyToken } from "./auth";
 import { SurfSpotManagerrzContext } from "./context";
-
 import express from "express";
 import cors from "cors";
 import { createServer } from "http";
+import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,6 +26,7 @@ const server = new ApolloServer<SurfSpotManagerrzContext>({
   typeDefs,
   resolvers,
   introspection: true,
+  plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   context: async ({ req }) => {
     let authorization = req.headers.authorization || null;
 
@@ -39,10 +39,10 @@ const server = new ApolloServer<SurfSpotManagerrzContext>({
 });
 
 const startApolloServer = async (app, httpServer) => {
-  await connectDB();
-
   await server.start();
   server.applyMiddleware({ app });
 };
 
-await startApolloServer(app, httpServer);
+startApolloServer(app, httpServer);
+
+export default httpServer;
