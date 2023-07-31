@@ -27,6 +27,7 @@ const server = new ApolloServer<SurfSpotManagerrzContext>({
   typeDefs,
   resolvers,
   introspection: true,
+  persistedQueries: false,
   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   context: async ({ req }) => {
     let authorization = req.headers.authorization || null;
