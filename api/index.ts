@@ -1,3 +1,3 @@
-import app from "../src/index";
+import httpServer from "../src/index";
 
-export default app;
+export default httpServer;

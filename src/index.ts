@@ -48,10 +48,11 @@ server.applyMiddleware({
   cors: false,
 });
 
+const PORT = 4000;
 httpServer
   .listen(() =>
-    console.log(`🚀 Server is now running on http://localhost:/graphql`),
+    console.log(`🚀 Server is now running on http://localhost:${PORT}/graphql`),
   )
   .on("close", () => httpServer.close());
 
-export default app;
+export default httpServer;
