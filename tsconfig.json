@@ -1,21 +1,21 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "rootDirs": ["src"],
     "outDir": "dist",
-    "lib": ["es2020"],
-    "target": "es2020",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "lib": ["es2022"],
+    "target": "es2022",
+    "module": "es2022",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "types": ["node"]
+    "types": ["node"],
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.graphql",
+    "src/**/*.graphql"
   ],
   "exclude": [
+    "dist",
     "node_modues"
   ]
 }

@@ -1,15 +1,15 @@
 {
   "name": "surfspot-finderrz",
   "version": "0.1.0",
-  "main": "index.js",
+  "exports": "./index.js",
   "author": "Gerald Mahlknecht",
   "license": "MIT",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "nodemon --watch './**/*.ts' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/index.ts",
-    "start": "nodemon --watch './**/*.ts' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/index.ts",
-    "build": "tsc -p . && ncp src dist",
+    "start": "npm run build && node --es-module-specifier-resolution=node dist/index.js",
+    "build": "tsc && cp src/schema.graphql dist/schema.graphql",
     "generate": "graphql-codegen --config .codegenconf.ts"
   },
   "dependencies": {

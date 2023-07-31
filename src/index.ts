@@ -3,9 +3,8 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import * as path from "path";
 import { fileURLToPath } from "url";
 import { readFileSync } from "fs";
-import { resolvers } from "./resolvers";
+import { resolvers } from "./resolvers/gql-resolvers";
 import { connectDB } from "./mongodb";
-import { User } from "./__generated__/resolvers-types";
 import { verifyToken } from "./auth";
 import { SurfSpotManagerrzContext } from "./context";
 
