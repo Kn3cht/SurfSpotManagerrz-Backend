@@ -7,10 +7,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nodemon --watch './**/*.ts' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/index.ts",
+    "dev": "nodemon --watch './**/*.ts' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' api/index.ts",
     "start": "npm run build && node --es-module-specifier-resolution=node dist/index.js",
-    "build": "tsc && cp src/schema.graphql dist/schema.graphql",
-    "generate": "graphql-codegen --config .codegenconf.ts"
+    "build": "tsc && cp api/schema.graphql dist/schema.graphql",
+    "generate": "graphql-codegen --config .codegenconf.ts",
+    "vercel-build": "echo hello"
   },
   "dependencies": {
     "@apollo/gateway": "^2.5.1",
