@@ -8,8 +8,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon --watch './**/*.ts' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/index.ts",
-    "start": "npm run build && node --es-module-specifier-resolution=node api/index.js",
-    "build": "tsc && cp src/schema.graphql api/schema.graphql",
+    "start": "npm run build && node --es-module-specifier-resolution=node dist/index.js",
+    "build": "tsc && cp src/schema.graphql dist/schema.graphql",
     "generate": "graphql-codegen --config .codegenconf.ts"
   },
   "dependencies": {

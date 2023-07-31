@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "rootDirs": ["src"],
-    "outDir": "api",
+    "outDir": "dist",
     "lib": ["es2022"],
     "target": "es2022",
     "module": "es2022",
@@ -11,11 +11,12 @@
     "types": ["node"],
   },
   "include": [
+    "api/index.ts",
     "src/**/*.ts",
     "src/**/*.graphql"
   ],
   "exclude": [
-    "api",
+    "dist",
     "node_modues"
   ]
 }
