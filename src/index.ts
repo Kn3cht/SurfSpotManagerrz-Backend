@@ -10,6 +10,7 @@ import { SurfSpotManagerrzContext } from "./context";
 import express from "express";
 import cors from "cors";
 import { createServer } from "http";
+import { defaultSettings } from "./config/defaultSettings";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,11 +49,11 @@ server.applyMiddleware({
   cors: false,
 });
 
-const PORT = 4000;
+const PORT = defaultSettings.port;
 httpServer
-  .listen(() =>
+  .listen(PORT, () =>
     console.log(`🚀 Server is now running on http://localhost:${PORT}/graphql`),
   )
   .on("close", () => httpServer.close());
 
-export default httpServer;
+export default server;
