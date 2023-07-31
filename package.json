@@ -7,9 +7,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nodemon --watch './**/*.ts' --exec 'node --trace-warnings --experimental-specifier-resolution=node --loader ts-node/esm' api/dev.ts",
-    "start": "node --es-module-specifier-resolution=node dist/index.js",
-    "build": "rimraf dist && tsc && cp api/schema.graphql dist/schema.graphql",
+    "dev": "nodemon --watch './**/*.ts' --exec 'node --trace-warnings --experimental-specifier-resolution=node --loader ts-node/esm' src/dev.ts",
+    "start": "node dist/index.js",
+    "build": "rimraf dist && tsc && cp src/schema.graphql dist/schema.graphql",
+    "prod": "yarn build && yarn start",
     "generate": "graphql-codegen --config .codegenconf.ts",
     "vercel-build": "echo hello"
   },
@@ -34,6 +35,9 @@
     "omit-deep-lodash": "^1.1.7"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/node": "^7.22.6",
+    "@babel/plugin-transform-modules-commonjs": "^7.22.5",
     "@graphql-codegen/cli": "^4.0.1",
     "@graphql-codegen/typescript": "^3.0.4",
     "@graphql-codegen/typescript-resolvers": "^3.2.1",

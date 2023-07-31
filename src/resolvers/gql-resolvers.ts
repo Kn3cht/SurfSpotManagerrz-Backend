@@ -1,8 +1,8 @@
 import { Resolvers } from "../__generated__/resolvers-types";
 import lodash from "lodash";
-import { surfSpotResolver } from "./surf-spot-resolver";
+import { surfSpotResolver } from "./surf-spot-resolver.js";
 import { GraphQLScalarType } from "graphql";
-import { userResolvers } from "./user-resolvers";
+import { userResolvers } from "./user-resolvers.js";
 
 const dateScalar = new GraphQLScalarType({
   name: "Date",

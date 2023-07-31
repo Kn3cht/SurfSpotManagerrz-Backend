@@ -1,7 +1,7 @@
-import { Resolvers } from "../__generated__/resolvers-types";
-import { UserModel } from "../mongodb/models/UserModel";
+import { Resolvers } from "../__generated__/resolvers-types.js";
+import { UserModel } from "../mongodb/models/UserModel.js";
 import bcrypt from "bcrypt";
-import { authorize, signUser } from "../auth";
+import { authorize, signUser } from "../auth/index.js";
 
 export const SALT_ROUNDS = 12;
 

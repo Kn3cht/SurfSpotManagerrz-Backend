@@ -129,4 +129,4 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-/api/__generated__/
+/src/__generated__/

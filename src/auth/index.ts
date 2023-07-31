@@ -1,9 +1,8 @@
-import { DBUser, UserModel } from "../mongodb/models/UserModel";
+import { DBUser, UserModel } from "../mongodb/models/UserModel.js";
 import jwtjson from "jsonwebtoken";
-import { defaultSettings } from "../config/defaultSettings";
-import { User } from "../__generated__/resolvers-types";
-import { SurfSpotManagerrzContext } from "../context";
-import { GraphQLError } from "graphql/error";
+import { defaultSettings } from "../config/defaultSettings.js";
+import { User } from "../__generated__/resolvers-types.js";
+import { SurfSpotManagerrzContext } from "../context.js";
 
 const JWT_SECRET = defaultSettings.jwtSecret;
 export const signUser = (user: DBUser) =>
@@ -41,11 +40,7 @@ export const verifyToken = async (
 
 export const authorize = (context: SurfSpotManagerrzContext): string => {
   if (!context.user) {
-    throw new GraphQLError("You are not authorized to perform this action.", {
-      extensions: {
-        code: "FORBIDDEN",
-      },
-    });
+    throw new Error("You are not authorized to perform this action.");
   }
   return context.user._id;
 };

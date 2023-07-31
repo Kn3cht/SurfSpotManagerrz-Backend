@@ -1,20 +1,18 @@
 {
   "compilerOptions": {
-    "rootDirs": [
-      "api"
-    ],
-    "outDir": "dist",
-    "lib": ["es2022"],
-    "target": "es2022",
-    "module": "es2022",
-    "moduleResolution": "Node",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "types": ["node"]
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "module": "ESNext",
+    "lib": ["ESNext"],
+    "moduleResolution": "node",
+    "skipLibCheck": true
   },
   "include": [
-    "api/**/*.ts",
-    "api/**/*.graphql"
+    "src/**/*.ts",
+    "src/**/*.graphql"
   ],
   "exclude": [
     "dist",

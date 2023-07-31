@@ -2,9 +2,9 @@ import { ApolloServer } from "apollo-server-express";
 import * as path from "path";
 import { fileURLToPath } from "url";
 import { readFileSync } from "fs";
-import { resolvers } from "./resolvers/gql-resolvers";
-import { verifyToken } from "./auth";
-import { SurfSpotManagerrzContext } from "./context";
+import { resolvers } from "./resolvers/gql-resolvers.js";
+import { verifyToken } from "./auth/index.js";
+import { SurfSpotManagerrzContext } from "./context.js";
 import express from "express";
 import cors from "cors";
 import { createServer } from "http";
@@ -38,11 +38,11 @@ const server = new ApolloServer<SurfSpotManagerrzContext>({
   },
 });
 
-const startApolloServer = async (app, httpServer) => {
+const startApolloServer = async (app: express.Application) => {
   await server.start();
   server.applyMiddleware({ app });
 };
 
-startApolloServer(app, httpServer);
+startApolloServer(app);
 
 export default httpServer;

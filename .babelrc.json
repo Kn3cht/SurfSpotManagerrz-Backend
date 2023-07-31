@@ -1,0 +1,13 @@
+{
+  "presets": [
+    ["@babel/preset-env", { "modules": false, "targets": { "node": true } }]
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-modules-commonjs", {
+      "allowTopLevelThis": true
+    }]
+  ],
+  "ignore": ["node_modules"],
+  "comments": false,
+  "minified": true
+}

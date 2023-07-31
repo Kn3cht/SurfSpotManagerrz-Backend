@@ -1,7 +1,7 @@
-import { Resolvers } from "../__generated__/resolvers-types";
-import { authorize } from "../auth";
-import { SurfSpotModel } from "../mongodb/models/SurfSpotModel";
-import { UserModel } from "../mongodb/models/UserModel";
+import { Resolvers } from "../__generated__/resolvers-types.js";
+import { authorize } from "../auth/index.js";
+import { SurfSpotModel } from "../mongodb/models/SurfSpotModel.js";
+import { UserModel } from "../mongodb/models/UserModel.js";
 
 export const surfSpotResolver: Resolvers = {
   Query: {
