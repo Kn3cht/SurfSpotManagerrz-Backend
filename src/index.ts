@@ -9,6 +9,7 @@ import express from "express";
 import cors from "cors";
 import { createServer } from "http";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
+import { connectDB } from "./mongodb";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -39,6 +40,7 @@ const server = new ApolloServer<SurfSpotManagerrzContext>({
 });
 
 const startApolloServer = async (app: express.Application) => {
+  await connectDB();
   await server.start();
   server.applyMiddleware({ app });
 };
