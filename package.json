@@ -1,0 +1,46 @@
+{
+  "name": "surfspot-finderrz",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Gerald Mahlknecht",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --watch './**/*.ts' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/index.ts",
+    "start": "nodemon --watch './**/*.ts' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/index.ts",
+    "build": "tsc -p . && ncp src dist",
+    "generate": "graphql-codegen --config .codegenconf.ts"
+  },
+  "dependencies": {
+    "@apollo/gateway": "^2.5.1",
+    "@apollo/server": "^4.7.5",
+    "apollo-server-express": "^3.12.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-jwt": "^8.4.1",
+    "graphql": "^16.7.1",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.4.1",
+    "omit-deep-lodash": "^1.1.7"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^4.0.1",
+    "@graphql-codegen/typescript": "^3.0.4",
+    "@graphql-codegen/typescript-resolvers": "^3.2.1",
+    "@types/node": "^20.4.1",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "resolutions": {
+    "string-width": "4.2.3"
+  }
+}
