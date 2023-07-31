@@ -56,4 +56,4 @@ httpServer
   )
   .on("close", () => httpServer.close());
 
-export default server;
+export default httpServer;
