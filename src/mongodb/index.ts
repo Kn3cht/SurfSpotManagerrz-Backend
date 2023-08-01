@@ -7,11 +7,8 @@ export const connectDB = async () => {
   return connect(mongoUrl, {
     user: defaultSettings.mongoUsername,
     pass: defaultSettings.mongoPassword,
-    // passphrase: defaultSettings.mongoPassword,
     dbName: defaultSettings.mongoDatabase,
   })
-    .then((value) =>
-      console.log(`🍃 Connected to mongo running on: ${mongoUrl}`),
-    )
+    .then(() => console.log(`🍃 Connected to mongo running on: ${mongoUrl}`))
     .catch((error) => console.error(error));
 };

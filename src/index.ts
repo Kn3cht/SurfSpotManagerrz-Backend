@@ -41,8 +41,9 @@ const server = new ApolloServer<SurfSpotManagerrzContext>({
 });
 
 const startApolloServer = async (app: express.Application) => {
-  await connectDB();
+  connectDB();
   await server.start();
+  console.log("🚀 Apollo Server Started");
   server.applyMiddleware({ app });
 };
 
