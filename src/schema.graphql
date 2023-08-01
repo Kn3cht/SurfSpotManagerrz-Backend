@@ -58,7 +58,7 @@ input SurfSpotInput {
     rating: Int
 }
 
-type CreateAccountResponse {
+type AuthorizationResponse {
     token: String
     user: User
 }
@@ -70,11 +70,9 @@ type Query {
     getSurfSpot(_id: ObjectId!): SurfSpot
 }
 
-
-
 type Mutation {
-    login(email: String!, password: String!): String
-    createAccount(username: String!, email: String!, password: String!): CreateAccountResponse
+    login(email: String!, password: String!): AuthorizationResponse
+    createAccount(username: String!, email: String!, password: String!): AuthorizationResponse
     deleteAccount: ObjectId
 
     createOrUpdateSurfSpot(surfSpot: SurfSpotInput): SurfSpot

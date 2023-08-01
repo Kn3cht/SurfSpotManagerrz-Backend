@@ -40,7 +40,7 @@ export const userResolvers: Resolvers = {
       if (!authenticated) {
         throw new Error("Wrong credentials");
       }
-      return signUser(user);
+      return { token: signUser(user), user };
     },
     deleteAccount: async (_, __, context) => {
       const userId = authorize(context);
