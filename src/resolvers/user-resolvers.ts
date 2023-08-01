@@ -2,6 +2,7 @@ import { Resolvers } from "../__generated__/resolvers-types.js";
 import { UserModel } from "../mongodb/models/UserModel.js";
 import bcrypt from "bcrypt";
 import { authorize, signUser } from "../auth/index.js";
+import { SurfSpotModel } from "../mongodb/models/SurfSpotModel";
 
 export const SALT_ROUNDS = 12;
 
@@ -44,6 +45,7 @@ export const userResolvers: Resolvers = {
     deleteAccount: async (_, __, context) => {
       const userId = authorize(context);
       await UserModel.findOneAndDelete({ _id: userId });
+      await SurfSpotModel.deleteMany({ userId });
       return userId;
     },
   },
