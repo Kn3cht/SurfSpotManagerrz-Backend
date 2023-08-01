@@ -8,6 +8,4 @@ export var defaultSettings = {
     mongoUsername: process.env.MONGO_INITDB_ROOT_USERNAME,
     mongoPassword: process.env.MONGO_INITDB_ROOT_PASSWORD,
     jwtSecret: process.env.JWT_SECRET,
-    cookieSecret: process.env.COOKIE_SECRET,
-    authEnabled: process.env.AUTH_ENABLED === "true",
 };
