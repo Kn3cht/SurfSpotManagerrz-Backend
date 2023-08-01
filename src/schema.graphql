@@ -7,13 +7,13 @@ type Empty {
 }
 
 type Coordinates {
-    lat: Float
-    lon: Float
+    lat: Float!
+    lon: Float!
 }
 
 input CoordinatesInput {
-    lat: Float
-    lon: Float
+    lat: Float!
+    lon: Float!
 }
 
 type User {
@@ -27,11 +27,23 @@ type Image {
     alt: String!
 }
 
+type Location {
+    name: String!
+    address: String!
+    coordinates: Coordinates!
+}
+
+input LocationInput {
+    name: String!
+    address: String!
+    coordinates: CoordinatesInput!
+}
+
 type SurfSpot {
     _id: ObjectId!
     name: String!
     description: String!
-    coordinates: Coordinates!
+    location: Location!
     userId: ObjectId!
     user: User
 }
@@ -41,7 +53,7 @@ input SurfSpotInput {
     _id: ObjectId
     name: String!
     description: String!
-    coordinates: CoordinatesInput!
+    location: LocationInput!
 }
 
 type CreateAccountResponse {

@@ -1,5 +1,9 @@
 import { model, Schema } from "mongoose";
-import { Coordinates, SurfSpot } from "../../__generated__/resolvers-types";
+import {
+  Coordinates,
+  Location,
+  SurfSpot,
+} from "../../__generated__/resolvers-types";
 import { v4 as uuid } from "uuid";
 
 const CoordinateSchema = new Schema<Coordinates>({
@@ -7,11 +11,17 @@ const CoordinateSchema = new Schema<Coordinates>({
   lon: { type: Number, required: true },
 });
 
+const LocationSchema = new Schema<Location>({
+  name: { type: String, required: true },
+  address: { type: String, required: true },
+  coordinates: CoordinateSchema,
+});
+
 const SurfSpotSchema = new Schema<SurfSpot>({
   _id: { type: String, required: true, unique: true, default: () => uuid() },
   name: { type: String, required: true },
   userId: { type: String, required: true },
-  coordinates: CoordinateSchema,
+  location: LocationSchema,
   description: { type: String, required: true },
 });
 
