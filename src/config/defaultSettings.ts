@@ -12,8 +12,6 @@ interface DefaultSettingsI {
   mongoPassword: string;
 
   jwtSecret: string;
-  cookieSecret: string;
-  authEnabled: boolean;
 }
 
 export const defaultSettings: DefaultSettingsI = {
@@ -25,6 +23,4 @@ export const defaultSettings: DefaultSettingsI = {
   mongoPassword: process.env.MONGO_INITDB_ROOT_PASSWORD!,
 
   jwtSecret: process.env.JWT_SECRET!,
-  cookieSecret: process.env.COOKIE_SECRET!,
-  authEnabled: process.env.AUTH_ENABLED === "true",
 };
