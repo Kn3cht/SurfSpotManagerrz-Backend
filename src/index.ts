@@ -9,7 +9,7 @@ import express from "express";
 import cors from "cors";
 import { createServer } from "http";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
-import { connectDB } from "./mongodb";
+import { connectDB } from "./mongodb/index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
