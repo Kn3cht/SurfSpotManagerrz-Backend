@@ -1,5 +1,5 @@
 import { connect } from "mongoose";
-import { defaultSettings } from "../config/defaultSettings";
+import { defaultSettings } from "../config/defaultSettings.js";
 
 const mongoUrl = `mongodb+srv://${defaultSettings.mongoUrl}`;
 

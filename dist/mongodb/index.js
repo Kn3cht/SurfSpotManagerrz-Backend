@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { connect } from "mongoose";
-import { defaultSettings } from "../config/defaultSettings";
+import { defaultSettings } from "../config/defaultSettings.js";
 var mongoUrl = "mongodb+srv://".concat(defaultSettings.mongoUrl);
 export var connectDB = function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
