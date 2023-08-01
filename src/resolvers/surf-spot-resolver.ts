@@ -27,6 +27,9 @@ export const surfSpotResolver: Resolvers = {
       }
       return await new SurfSpotModel(surfSpotDb).save();
     },
+    deleteSurfSpot: async (_, { _id }) => {
+      return (await SurfSpotModel.findOneAndDelete({ _id }, { new: true }))._id;
+    },
   },
   SurfSpot: {
     user: async (parent) => {

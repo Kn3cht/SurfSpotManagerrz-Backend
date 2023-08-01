@@ -46,6 +46,7 @@ type SurfSpot {
     location: Location!
     userId: ObjectId!
     user: User
+    rating: Int
 }
 
 input SurfSpotInput {
@@ -54,6 +55,7 @@ input SurfSpotInput {
     name: String!
     description: String!
     location: LocationInput!
+    rating: Int
 }
 
 type CreateAccountResponse {
@@ -73,10 +75,10 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): String
     createAccount(username: String!, email: String!, password: String!): CreateAccountResponse
-    deleteAccount: String
+    deleteAccount: ObjectId
 
     createOrUpdateSurfSpot(surfSpot: SurfSpotInput): SurfSpot
-    deleteSurfSpot(_id: ObjectId!): SurfSpot
+    deleteSurfSpot(_id: ObjectId!): ObjectId
 }
 
 

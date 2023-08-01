@@ -23,6 +23,7 @@ const SurfSpotSchema = new Schema<SurfSpot>({
   userId: { type: String, required: true },
   location: LocationSchema,
   description: { type: String, required: true },
+  rating: { type: Number, required: false, max: 5, min: 0 },
 });
 
 export const SurfSpotModel = model<SurfSpot>("SurfSpot", SurfSpotSchema);
