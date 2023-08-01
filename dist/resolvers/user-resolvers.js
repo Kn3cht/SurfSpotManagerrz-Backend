@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import { UserModel } from "../mongodb/models/UserModel.js";
 import bcrypt from "bcrypt";
 import { authorize, signUser } from "../auth/index.js";
-import { SurfSpotModel } from "../mongodb/models/SurfSpotModel";
+import { SurfSpotModel } from "../mongodb/models/SurfSpotModel.js";
 export var SALT_ROUNDS = 12;
 export var userResolvers = {
     Query: {

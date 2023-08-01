@@ -2,7 +2,7 @@ import { Resolvers } from "../__generated__/resolvers-types.js";
 import { UserModel } from "../mongodb/models/UserModel.js";
 import bcrypt from "bcrypt";
 import { authorize, signUser } from "../auth/index.js";
-import { SurfSpotModel } from "../mongodb/models/SurfSpotModel";
+import { SurfSpotModel } from "../mongodb/models/SurfSpotModel.js";
 
 export const SALT_ROUNDS = 12;
 
