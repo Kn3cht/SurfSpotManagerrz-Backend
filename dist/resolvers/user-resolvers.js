@@ -93,7 +93,7 @@ export var userResolvers = {
                             if (!authenticated) {
                                 throw new Error("Wrong credentials");
                             }
-                            return [2 /*return*/, signUser(user)];
+                            return [2 /*return*/, { token: signUser(user), user: user }];
                     }
                 });
             });
