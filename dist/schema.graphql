@@ -1,0 +1,82 @@
+scalar ObjectId
+
+scalar Date
+
+type Empty {
+    _: String
+}
+
+type Coordinates {
+    lat: Float!
+    lon: Float!
+}
+
+input CoordinatesInput {
+    lat: Float!
+    lon: Float!
+}
+
+type User {
+    _id: ObjectId!
+    username: String!
+    email: String!
+}
+
+type Image {
+    url: String!
+    alt: String!
+}
+
+type Location {
+    name: String!
+    address: String!
+    coordinates: Coordinates!
+}
+
+input LocationInput {
+    name: String!
+    address: String!
+    coordinates: CoordinatesInput!
+}
+
+type SurfSpot {
+    _id: ObjectId!
+    name: String!
+    description: String!
+    location: Location!
+    userId: ObjectId!
+    user: User
+    rating: Int
+}
+
+input SurfSpotInput {
+    # Optional
+    _id: ObjectId
+    name: String!
+    description: String!
+    location: LocationInput!
+    rating: Int
+}
+
+type AuthorizationResponse {
+    token: String
+    user: User
+}
+
+type Query {
+    findCurrentUser: User
+
+    listSurfSpots: [SurfSpot]
+    getSurfSpot(_id: ObjectId!): SurfSpot
+}
+
+type Mutation {
+    login(email: String!, password: String!): AuthorizationResponse
+    createAccount(username: String!, email: String!, password: String!): AuthorizationResponse
+    deleteAccount: ObjectId
+
+    createOrUpdateSurfSpot(surfSpot: SurfSpotInput): SurfSpot
+    deleteSurfSpot(_id: ObjectId!): ObjectId
+}
+
+
