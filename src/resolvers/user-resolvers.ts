@@ -14,7 +14,7 @@ export const userResolvers: Resolvers = {
   },
   Mutation: {
     createAccount: async (_, { email, password, username }, context, info) => {
-      if (await UserModel.find({ email })) {
+      if (await UserModel.findOne({ email })) {
         throw new Error("E-Mail already in use");
       }
 
